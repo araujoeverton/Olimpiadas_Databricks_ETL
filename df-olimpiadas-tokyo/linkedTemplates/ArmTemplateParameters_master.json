@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "df-olimpiadas-tokyo"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AthletesHttp_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/araujoeverton/Olimpiadas_Tokyo_ETL_End_to_End/main/data/Athletes.csv"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://strolimpiadastokyo.dfs.core.windows.net/"
+		},
+		"CoachesHttp_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/araujoeverton/Olimpiadas_Tokyo_ETL_End_to_End/main/data/Coaches.csv"
+		},
+		"EntriesGenderHttp_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/araujoeverton/Olimpiadas_Tokyo_ETL_End_to_End/main/data/EntriesGender.csv"
+		},
+		"MedalsHttp_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/araujoeverton/Olimpiadas_Tokyo_ETL_End_to_End/main/data/Medals.csv"
+		},
+		"TeamsHttp_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/araujoeverton/Olimpiadas_Tokyo_ETL_End_to_End/main/data/Teams.csv"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
