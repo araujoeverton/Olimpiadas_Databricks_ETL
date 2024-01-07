@@ -1,0 +1,21 @@
+{
+	"name": "EntriesGender",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "EntriesGenderHttp",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
