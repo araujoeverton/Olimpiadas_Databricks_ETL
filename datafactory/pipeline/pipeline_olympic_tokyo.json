@@ -314,6 +314,97 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "Mount",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Teams",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Repos/everton.araujo.cruz@outlook.com/Olimpiadas_Tokyo_ETL_End_to_End/databricks/Databricks_Mount",
+					"libraries": [
+						{
+							"jar": ""
+						}
+					]
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricks",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Bronze Copy",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Mount",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Repos/everton.araujo.cruz@outlook.com/Olimpiadas_Tokyo_ETL_End_to_End/databricks/Copy_para_Bronze",
+					"libraries": [
+						{
+							"jar": ""
+						}
+					]
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricks",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Bronze para Silver",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Bronze Copy",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Repos/everton.araujo.cruz@outlook.com/Olimpiadas_Tokyo_ETL_End_to_End/databricks/Bronze_para_Silver"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricks",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": []
