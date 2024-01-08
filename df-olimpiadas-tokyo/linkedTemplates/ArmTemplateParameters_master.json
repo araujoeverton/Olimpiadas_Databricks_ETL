@@ -8,6 +8,9 @@
 		"AzureDataLakeStorage1_accountKey": {
 			"value": ""
 		},
+		"AzureDatabricks_accessToken": {
+			"value": ""
+		},
 		"AthletesHttp_properties_typeProperties_url": {
 			"value": "https://raw.githubusercontent.com/araujoeverton/Olimpiadas_Tokyo_ETL_End_to_End/main/data/Athletes.csv"
 		},
