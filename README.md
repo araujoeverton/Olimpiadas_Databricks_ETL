@@ -78,10 +78,9 @@ entriesgender.write.format("delta").mode("overwrite").save("/mnt/olimpiadas-dado
 medals.write.format("delta").mode("overwrite").save("/mnt/olimpiadas-dados/bronze/medals")
 teams.write.format("delta").mode("overwrite").save("/mnt/olimpiadas-dados/bronze/teams")
 ```
-## Transferindo dados para a camada Silver
+## Transformando os dados
 ```ssh
-path = ("/mnt/olimpiadas-dados/bronze/athletes")
-df = spark.read.format("delta").load(path)
+
 ```
 
 
