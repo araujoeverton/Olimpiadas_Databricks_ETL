@@ -5,17 +5,10 @@
 Neste projeto, utilizando Apache Spark e o Python para extração e transformação dos dados. Todo o projeto seguiu a convenção de boas práticas do Databricks, com documentação e de fácil aplicabilidade.
 
 ## Etapas
-- Extração, tratamento e carga de dados com Pyspark.
+- Extração, transformação e carga de dados com Pyspark.
 - Carga em Banco de Dados Azure Data Lake.
 - Compartilhamento público do script no GitHub para versionamento e fins de estudo.
 - Boas práticas para garantir a segurança dos dados no Blob Storage.
-
-
-
-
-
-And of course Dillinger itself is open source with a [public repository][dill]
- on GitHub.
 
 ## Recursos
 
