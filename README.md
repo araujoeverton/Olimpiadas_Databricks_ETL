@@ -71,9 +71,6 @@ entriesgender.write.format("delta").mode("overwrite").save("/mnt/olimpiadas-dado
 medals.write.format("delta").mode("overwrite").save("/mnt/olimpiadas-dados/bronze/medals")
 teams.write.format("delta").mode("overwrite").save("/mnt/olimpiadas-dados/bronze/teams")
 ```
-## Transformando os dados
-```ssh
 
-```
 
 
