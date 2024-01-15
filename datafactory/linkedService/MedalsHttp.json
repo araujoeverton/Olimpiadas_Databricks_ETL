@@ -1,5 +1,6 @@
 {
 	"name": "MedalsHttp",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "HttpServer",
