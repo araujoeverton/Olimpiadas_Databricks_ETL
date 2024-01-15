@@ -22,4 +22,4 @@ display(goldmedals)
 
 # COMMAND ----------
 
-
+dispĺay(dbutils.fs.ls("/mnt/olimpiadas-dados/bronze/athletes"))

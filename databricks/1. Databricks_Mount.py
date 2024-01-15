@@ -4,16 +4,13 @@
 
 # COMMAND ----------
 
+# Primeiro devemos criar um Scope da key Vault através da Url https://<databricks-instance>#secrets/createScope
+# É possível acessar a lista de Scopes atráves do CLI do Databricks a partir do comendo => databricks secrets list-scopes
 
-app_id = "6e37747f-82d6-467e-bc4e-7359074ce0f5"
-tenant_id = "82a78a41-ae87-403f-bfaa-570fa0b8e867"
-key = "Q4ZFYRNyRd1GjT3MUUabxl5se4iHLh+O3whmlTdl0cruitUX5Gi+nQmqsNdEdZ96l45LzPwCgqpv+AStxzQEQg=="
+configs = {
+          "fs.azure.account.key.strolimpiadastokyo.blob.core.windows.net": dbutils.secrets.get(scope="key-vault-scope",key="keyolimpiadas")}
 
-configs = {"fs.azure.account.auth.type": "OAuth",
-          "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-          "fs.azure.account.oauth2.client.id": app_id ,
-          "fs.azure.account.oauth2.client.secret": key,
-          "fs.azure.account.oauth2.client.endpoint": f"https://login.microsoftonline.com/{tenant_id}/oauth2/token"}
+# Montagem do DBFS
 
 dbutils.fs.mount(
   source = "abfss://data-olympic-data@strolimpiadastokyo.dfs.core.windows.net/",
@@ -24,3 +21,9 @@ dbutils.fs.mount(
 
 # MAGIC %fs
 # MAGIC ls "/mnt/olimpiadas-dados"
+
+# COMMAND ----------
+
+dbutils.fs.unmount(
+    "/mnt/olimpiadas-dados"
+)
