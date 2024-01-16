@@ -1,9 +1,0 @@
-{
-	"name": "df-olimpiadas-tokyo",
-	"location": "eastus",
-	"identity": {
-		"type": "SystemAssigned",
-		"principalId": "6166d5a8-5b74-4344-8636-2764bb26ebfb",
-		"tenantId": "82a78a41-ae87-403f-bfaa-570fa0b8e867"
-	}
-}
