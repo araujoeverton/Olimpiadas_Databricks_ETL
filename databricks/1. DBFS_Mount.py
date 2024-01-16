@@ -7,15 +7,14 @@
 # Primeiro devemos criar um Scope da key Vault através da Url https://<databricks-instance>#secrets/createScope
 # É possível acessar a lista de Scopes atráves do CLI do Databricks a partir do comendo => databricks secrets list-scopes
 
-configs = {
-          "fs.azure.account.key.strolimpiadastokyo.blob.core.windows.net": dbutils.secrets.get(scope="key-vault-scope",key="keyolimpiadas")}
 
 # Montagem do DBFS
 
 dbutils.fs.mount(
-  source = "abfss://data-olympic-data@strolimpiadastokyo.dfs.core.windows.net/",
-  mount_point = "/mnt/olimpiadas-dados",
-  extra_configs = configs)
+  source = "wasbs://fsolimpiadas@strolimpiadas.blob.core.windows.net",
+  mount_point = "/mnt/dev-files",
+  extra_configs = {
+          "fs.azure.account.key.strolimpiadas.blob.core.windows.net": dbutils.secrets.get(scope="key-vault-scope",key="keyolimpiadas")})
 
 # COMMAND ----------
 
