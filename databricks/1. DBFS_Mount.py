@@ -14,12 +14,12 @@ dbutils.fs.mount(
   source = "wasbs://fsolimpiadas@strolimpiadas.blob.core.windows.net",
   mount_point = "/mnt/dev-files",
   extra_configs = {
-          "fs.azure.account.key.strolimpiadas.blob.core.windows.net": dbutils.secrets.get(scope="key-vault-scope",key="keyolimpiadas")})
+          "fs.azure.account.key.strolimpiadas.blob.core.windows.net":dbutils.secrets.get(scope="scopeolimpiadas", key="secret-olimpiadas")})
 
 # COMMAND ----------
 
 # MAGIC %fs
-# MAGIC ls "/mnt/olimpiadas-dados"
+# MAGIC ls "/mnt/dev-files"
 
 # COMMAND ----------
 
