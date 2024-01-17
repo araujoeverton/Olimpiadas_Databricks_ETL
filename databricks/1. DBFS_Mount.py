@@ -4,25 +4,22 @@
 
 # COMMAND ----------
 
-# Primeiro devemos criar um Scope da key Vault através da Url https://<databricks-instance>#secrets/createScope
-# É possível acessar a lista de Scopes atráves do CLI do Databricks a partir do comendo => databricks secrets list-scopes
+# Montando ABFS (driver de sistema de arquivos de Blob do Azure) 
 
-
-# Montagem do DBFS
+configs = {
+  "fs.azure.account.auth.type": "OAuth",
+  "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+  "fs.azure.account.oauth2.client.id": "29e1d04c-4c9d-48f4-99fa-1485e95a9161",
+  "fs.azure.account.oauth2.client.secret": "MQv8Q~YV~~4hS3BE~ppDPSqZhHZ8HXDVm3tr4c6m",
+  "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/15c23003-2e0f-4294-a1a3-44651083ea70/oauth2/token"
+}
 
 dbutils.fs.mount(
-  source = "wasbs://fsolimpiadas@strolimpiadas.blob.core.windows.net",
-  mount_point = "/mnt/dev-files",
-  extra_configs = {
-          "fs.azure.account.key.strolimpiadas.blob.core.windows.net":dbutils.secrets.get(scope="scopeolimpiadas", key="secret-olimpiadas")})
+  source = "abfss://fsolimpiadas@strolimpiadas.dfs.core.windows.net/",
+  mount_point = "/mnt/olimpiadasdata",
+  extra_configs = configs)
 
 # COMMAND ----------
 
-# MAGIC %fs
-# MAGIC ls "/mnt/dev-files"
+dbutils.fs.ls('/mnt/olimpiadasdata/bronze')
 
-# COMMAND ----------
-
-dbutils.fs.unmount(
-    "/mnt/olimpiadas-dados"
-)
