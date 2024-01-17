@@ -7,7 +7,6 @@
 from pyspark.sql.functions import col
 
 
-
 # COMMAND ----------
 
 athletes = spark.read.format("csv").option("header","true").option("InferSchema","true").load("/mnt/olimpiadasdata/bronze/Athletes.csv")
